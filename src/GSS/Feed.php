@@ -2,7 +2,7 @@
 
 namespace GSS;
 
-class CSVFeed
+class Feed
 {
     public static function world()
     {

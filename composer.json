@@ -1,0 +1,22 @@
+{
+    "name": "borasocom/gss",
+    "description": "Google Shopping for Suppliers feed CSV creator for Wordpress",
+    "keywords": ["csv", "feed", "google", "shopping", "suppliers"],
+    "homepage": "https://github.com/arioch1984/gss-feed",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "fabio.brunelli",
+            "email": "fabio.brunelli@studio.boraso.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "borasocom\\gss": "src/"
+        }
+    }
+}

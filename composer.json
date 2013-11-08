@@ -1,5 +1,5 @@
 {
-    "name": "borasocom/GSS",
+    "name": "borasocom/gss",
     "description": "Google Shopping for Suppliers feed CSV creator for Wordpress",
     "keywords": ["csv", "feed", "google", "shopping", "suppliers"],
     "homepage": "https://github.com/arioch1984/gss-feed",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "borasocom\\GSS": "src/"
+            "borasocom\\gss": "src/"
         }
     }
 }

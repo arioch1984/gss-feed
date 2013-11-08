@@ -1,8 +1,8 @@
 <?php
 
-namespace gss;
+namespace GSS;
 
-class gss
+class GSS
 {
     public static function world()
     {

@@ -21,11 +21,28 @@ class Feed
     }
 
     //Add single product to the feed
-    //Return prodcuts number
+    //Return prodcuts number or false if product won't be added
     public function add_product($args)
     {
+        $pre_insert_count = $this->count();
         $this->Products[] = new Product($args);
-        return $this->count();
+        $post_insert_count = $this->count();
+        if($pre_insert_count >= $post_insert_count){
+            return false;
+        }
+        else{
+            return $this->count();
+        }
+    }
+
+    //Return products array or false if it has no items
+    public function get_products(){
+        if($this->count()>0){
+            return $this->Products;
+        }
+        else{
+            return false;
+        }
     }
 }
 ?>

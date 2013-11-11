@@ -15,9 +15,17 @@ class Feed
         $this->Products = array();
     }
 
-    public static function world()
+    //Return prodcuts number
+    public function count(){
+        return count($this->Products);
+    }
+
+    //Add single product to the feed
+    //Return prodcuts number
+    public function add_product($args)
     {
-        return 'Hello World, Composer!';
+        $this->Products[] = new Product($args);
+        return $this->count();
     }
 }
 ?>

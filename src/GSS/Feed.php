@@ -1,6 +1,11 @@
 <?php
+/*
+ * Feed structure class
+ */
 
 namespace GSS;
+
+use GSS/Produ
 
 class Feed
 {

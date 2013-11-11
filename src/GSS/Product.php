@@ -30,7 +30,7 @@ class Product {
                     $tmp_field[$required_field_name] = $args[$required_field_name];
                 }
                 else{
-                    throw new Exception('Required field '.$required_field_name.' not present');
+                    throw new \Exception('Required field '.$required_field_name.' not present');
                 }
             }
 
@@ -44,7 +44,7 @@ class Product {
             $this->fields = array();
             $this->fields = $tmp_field;
         }
-        catch(Exception $e){
+        catch(\Exception $e){
             error_log($e->getMessage());
         }
     }

@@ -5,10 +5,16 @@
 
 namespace GSS;
 
-use GSS/Produ
+use GSS\Product;
 
 class Feed
 {
+    private $Products;
+
+    public function __construct(){
+        $this->Products = array();
+    }
+
     public static function world()
     {
         return 'Hello World, Composer!';

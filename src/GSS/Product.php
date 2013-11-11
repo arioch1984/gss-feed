@@ -19,7 +19,7 @@ class Product {
 
     //Product fields
     public $fields;
-    
+
     //Take a relational array as input with an element for each field
     public function __construct($args){
         $tmp_field = array();

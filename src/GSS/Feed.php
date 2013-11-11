@@ -24,14 +24,13 @@ class Feed
     //Return prodcuts number or false if product won't be added
     public function add_product($args)
     {
-        $pre_insert_count = $this->count();
-        $this->Products[] = new Product($args);
-        $post_insert_count = $this->count();
-        if($pre_insert_count >= $post_insert_count){
-            return false;
+        $new_product = new Product($args);
+        if((!empty($new_product->fields))&&($new_product->fields!=null)){
+            $this->Products[] = $new_product;
+            return $this->count();
         }
         else{
-            return $this->count();
+            return false;
         }
     }
 

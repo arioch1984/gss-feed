@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-0": {
-            "borasocom\\gss": "src/"
+            "GSS": "src/"
         }
     }
 }

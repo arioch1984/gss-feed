@@ -36,9 +36,19 @@ class Feed
     }
 
     //Return products array or false if it has no items
-    public function get_products(){
+    //$type => return as array of arrays or array of objects
+    public function get_products($type = 'objects'){
         if($this->count()>0){
-            return $this->Products;
+            if($type == 'arrays'){
+                $products = array();
+                foreach($this->Products as $Product){
+                    $products[] = $Product->fields;
+                }
+                return $products;
+            }
+            else{
+                return $this->Products;
+            }
         }
         else{
             return false;

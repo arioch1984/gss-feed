@@ -40,6 +40,9 @@ class Product {
                 if((isset($args[$recommended_field_name]))&&(!empty($args[$recommended_field_name]))){
                     $tmp_field[$recommended_field_name] = $args[$recommended_field_name];
                 }
+                else{
+                    $tmp_field[$recommended_field_name] = '';
+                }
             }
 
             $this->fields = array();

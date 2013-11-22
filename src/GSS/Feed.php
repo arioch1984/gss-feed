@@ -34,7 +34,7 @@ class Feed
         }
     }
 
-    //Return products array or false if it has no items
+    //Return products arrays or false if it has no items
     //$type => return as array of arrays or array of objects
     public function get_products($type = 'objects'){
         if($this->count()>0){
@@ -54,15 +54,21 @@ class Feed
         }
     }
 
-    //Return products array or false if it has no items
+    //Return products arrays or false if it has no items
     public function get_products_not_empty(){
         if($this->count()>0){
             $products = array();
+            $key_with_empty_contents = array();
             foreach($this->Products as $index => $Product){
                 $products[$index] = array();
                 foreach($Product->fields as $key => $field){
                     if(!empty($field)){
-                        $products[$index][$key] = $field;
+                        if(!in_array($key,$key_with_empty_contents)){
+                            $products[$index][$key] = $field;
+                        }
+                    }
+                    else{
+                        array_push($key_with_empty_contents,$key);
                     }
                 }
             }
@@ -72,5 +78,41 @@ class Feed
             return false;
         }
     }
+
+    //Return products arrays plus header titles or false if it has no items
+    public function get_feed_not_empty(){
+        if($this->count()>0){
+            $feed = array();
+            $key_with_empty_contents = array();
+            foreach($this->Products as $index => $Product){
+                $feed[$index] = array();
+                foreach($Product->fields as $key => $field){
+                    if(!empty($field)){
+                        if(!in_array($key,$key_with_empty_contents)){
+                            $feed[$index][$key] = $field;
+                        }
+                    }
+                    else{
+                        array_push($key_with_empty_contents,$key);
+                    }
+                }
+            }
+            $titles = Product::get_titles();
+            $non_empty_titles = array();
+            foreach($titles as $title){
+                if(!in_array($title,$key_with_empty_contents)){
+                    array_push($non_empty_titles,$title);
+                }
+            }
+            array_unshift($feed,$non_empty_titles);
+
+            return $feed;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
 ?>

@@ -53,5 +53,24 @@ class Feed
             return false;
         }
     }
+
+    //Return products array or false if it has no items
+    public function get_products_not_empty(){
+        if($this->count()>0){
+            $products = array();
+            foreach($this->Products as $index => $Product){
+                $products[$index] = array();
+                foreach($Product->fields as $key => $field){
+                    if(!empty($field)){
+                        $products[$index][$key] = $field;
+                    }
+                }
+            }
+            return $products;
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>
